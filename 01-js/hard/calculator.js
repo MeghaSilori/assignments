@@ -17,7 +17,58 @@
 */
 
 class Calculator {
-  
-}
+  constructor() {
+     this.result = 0;
+  }
+ 
+  add(number) {
+     this.result += number;
+     return this;
+  }
+ 
+  subtract(number) {
+     this.result -= number;
+     return this;
+  }
+ 
+  multiply(number) {
+     this.result *= number;
+     return this;
+  }
+ 
+  divide(number) {
+     if (number === 0) {
+       throw new Error("Division by zero is not allowed");
+     }
+     this.result /= number;
+     return this;
+  }
+ 
+  clear() {
+     this.result = 0;
+     return this;
+  }
+ 
+  getResult() {
+     return this.result;
+  }
+ 
+  calculate(expression) {
+    // Remove continuous spaces and validate input
+    const cleanedExpression = expression.replace(/\s+/g, '');
+    if (!/^[\d\+\-\*\/\(\)\.]+$/.test(cleanedExpression)) {
+      throw new Error("Invalid input");
+    }
+    try {
+      this.result = eval(cleanedExpression);
+      if (!isFinite(this.result)) {
+        throw new Error("Division by zero");
+      }
+    } catch (error) {
+      throw new Error("Invalid expression");
+    }
+  }
+ }
+ 
 
 module.exports = Calculator;

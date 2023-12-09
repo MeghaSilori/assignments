@@ -15,7 +15,7 @@ function calculateTime(n) {
         sum += i;
     }
     let end = new Date();
-    return end - start;
+    return end.getTime() - start.getTime();
 }
 
 console.log('Execution time for sum from 1 to 100: ', calculateTime(100));

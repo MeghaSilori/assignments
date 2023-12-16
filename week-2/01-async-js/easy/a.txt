@@ -1,0 +1,2 @@
+Line 1: Lorem ipsum dolor sit amet, 
+ Line 2: consectetur adipiscing elit.Line 3: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Line 4: Ut enim ad minim veniam, Line 5: quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Hello, this is the content to be written to the file.

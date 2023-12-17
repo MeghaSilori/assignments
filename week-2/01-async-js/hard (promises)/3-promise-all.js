@@ -30,17 +30,11 @@ function wait3(t) {
     });
 }
 
-function cal (t1, t2, t3){
+function calculateTime(t1, t2, t3) {
     let start = Date.now() ;
     // Use Promise.all to make sure all three are resolved before proceeding
-    Promise.all([wait1(t1), wait2(t2), wait3(t3)]).
-        then(()=>{
-            const end = Date.now();
-            return  end-start;
-        })
-}
-function calculateTime(t1, t2, t3) {
-    return cal(t1,t2,t3);
+    let p = Promise.all([wait1(t1*1000), wait2(t2*1000), wait3(t3*1000)]);
+    return p.then(() => Date.now() - start );
 }
 
 module.exports = calculateTime;

@@ -29,15 +29,12 @@ function wait3(t) {
     });
 }
 
-function sequentialExecution() {
-    return wait1()
-      .then(() => wait2())
-      .then(() => wait3());
-}
-
 function calculateTime(t1, t2, t3) {
     let start = Date.now();
-    return sequentialExecution().then(() => Date.now() - start ));
+    let p = wait1(t1)
+    .then(() => wait2(t2))
+    .then(() => wait3(t3));
+    return p.then(() => Date.now() - start );
     // Calling the three functions one by one using .then()
 }
 
